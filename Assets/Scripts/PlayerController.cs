@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Movement
+    public float xSpeed = 5f;
+    private float xVector = 0f;
+
+    private Rigidbody2D rb;
+
     public bool overworld; 
 
     private void Start()
@@ -34,5 +40,5 @@ public class PlayerController : MonoBehaviour
     
     
     
-    //after all Unity functions, your own functions can go here
+    //after all Unity functions, your own functions go here`
 }
