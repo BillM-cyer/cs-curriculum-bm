@@ -5,19 +5,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Movement
-    public float xSpeed = 5f;
-    private float xVector = 0f;
 
     private Rigidbody2D rb;
 
-    public bool overworld; 
+    public bool overworld;
+
+    float xSpeed;
+    float xDirection;
+    float xVector;
 
     private void Start()
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
         GetComponentInChildren<Platformer_AnimatorController>().enabled = !overworld; //what do you think ! means?
-        
+
+        xSpeed = 5f;
+        xDirection = 0f;
+        xVector = 0f;
         
         if (overworld)
         {
@@ -31,6 +35,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        xDirection = Input.GetAxis("Horizontal");
+        xVector = xDirection * xSpeed * Time.deltaTime;
+
+        transform.Translate(xVector, 0, 0);
         
     }
     
