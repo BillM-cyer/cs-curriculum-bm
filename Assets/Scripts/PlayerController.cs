@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     float xDirection;
     float xVector;
 
+    float ySpeed;
+    float yDirection;
+    float yVector;
+
     private void Start()
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
@@ -22,7 +26,11 @@ public class PlayerController : MonoBehaviour
         xSpeed = 5f;
         xDirection = 0f;
         xVector = 0f;
-        
+
+        ySpeed = 5f;
+        yDirection = 0f;
+        yVector = 0f;
+
         if (overworld)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0f;
@@ -38,7 +46,10 @@ public class PlayerController : MonoBehaviour
         xDirection = Input.GetAxis("Horizontal");
         xVector = xDirection * xSpeed * Time.deltaTime;
 
-        transform.Translate(xVector, 0, 0);
+        yDirection = Input.GetAxis("Vertical");
+        yVector = yDirection * ySpeed * Time.deltaTime;
+
+        transform.Translate(xVector, yVector, 0);
         
     }
     
