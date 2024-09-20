@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     float yDirection;
     float yVector;
 
+    private float healthPoints;
+
+    
     private void Start()
     {
         GetComponentInChildren<TopDown_AnimatorController>().enabled = overworld;
@@ -31,6 +34,8 @@ public class PlayerController : MonoBehaviour
         yDirection = 0f;
         yVector = 0f;
 
+        healthPoints = 4;
+        
         if (overworld)
         {
             GetComponent<Rigidbody2D>().gravityScale = 0f;
@@ -55,7 +60,8 @@ public class PlayerController : MonoBehaviour
     
     //for organization, put other built-in Unity functions here
     
-    
+    if healthPoints == 0
+        
     
     
     
