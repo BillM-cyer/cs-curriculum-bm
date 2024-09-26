@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gm;
 
-    public TestMeshProUGUI coinText;
-    public TestMeshProUGUI healthText;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI healthText;
     public void Awake()
     {
-        if (gm != null && gm != this)
+        if (gm != null && gm != this) 
         {
             Destroy(gameObject);
         }
